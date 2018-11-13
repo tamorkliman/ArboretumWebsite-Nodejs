@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+		</style>
+  </head>
+  <h1>Welcome to the Sensornode Ping-Scheduling Page</h1>
+    <p>Note: All Sensornodes are listed below, if you don't see one. Manually add it to the sensornodeclients-table in the database 
+      <br/>
+    </p>
+    <p>Choose From This List of All Active Sensornodes</p>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Port</th>
+    </tr>
+    <% for(var i = 0; i < clength; i++){ %>
+    <tr>
+      <td><%= cnames[i]     %></td>
+      <td><%= clocations[i] %></td>
+      <td><%= cports[i]     %></td>
+    </tr>
+    <%} %>
+  </table>
+  <p>Fields to Set a Sensornode's Ping Schedule</p>
+  <body>
+    <form id="scheduling-form" method="POST" action="/schedulingpage">
+      <label for="sensornodename">sensornodename</label>
+      <input type="text" name="sensornodename">
+      <label for="seconds">seconds</label>
+      <input type="number" name="seconds">
+      <label for="minutes">minutes</label>
+      <input type="number" name="minutes">
+      <label for="hours">hours</label>
+      <input type="number" name="hours">
+      <label for="days">days</label>
+      <input type="number" name="days">
+      <label for="months">months</label>
+      <input type="number" name="months">
+      <input type="submit" value="submit"/>
+    </form>
+  <p>Current Ping Frequencies For All Unique Names (Note: Only Names that match client names in above table are active</p>
+  <table>
+      <tr>
+        <th>Client Name</th>
+        <th>secs</th>
+        <th>mins</th>
+        <th>hours</th>
+        <th>days</th>
+        <th>months</th>
+      </tr>
+      <% for(var i = 0; i < plength; i++){ %>
+      <tr>
+        <td><%= pnames[i]  %></td>
+        <td><%= psec[i]    %></td>
+        <td><%= pmin[i]    %></td>
+        <td><%= phours[i]  %></td>
+        <td><%= pdays[i]   %></td>
+        <td><%= pmonths[i] %></td>
+      </tr>
+      <%} %>
+  </table>
+  
+	</body>
+</html>

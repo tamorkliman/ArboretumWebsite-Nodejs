@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+/*			body{background: skyblue; font-family: verdana; color: #fff; padding 30px;}
+			h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+			p{font-size: 16px; text-align:center;}*/
+			table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+		</style>
+	</head>
+	<h1>Welcome to the S-Lab Greenhouse Website</h1>
+	<h2>Sensor Data (Time Stamp = YearMonthDay::HourMinSec) </h2>
+	<h3>Sensor Reading Units: Humidity = % of Relative Humidity, Light = Lux, Temperature = Celcius</h3>
+	<body>
+		<% for(var i = 0; i < numclients;i++){%>
+		<h3><%= snname[i] %></h3>
+			<table>
+				<tr>
+					<th>Time Stamp (YYYYMMDD::HHMMSS)</th>
+					<th>Sensor Index</th>
+					<th>Sensor Name</th>
+					<th>Type</th>
+					<th>reading</th>
+				</tr>
+				<% for(var j = 0; j < samountperclient[i]; j++){%>
+				<tr>
+					<td><%= stimestamp[i][j] %></td>
+					<td><%= sindex[i][j] %></td>
+					<td><%= sname[i][j] %></td>
+					<td><%= sstype[i][j] %></td>
+					<td><%= sreading[i][j] %></td>
+				</tr>
+				<%} %>
+			</table>
+			<br/>
+		<%}%>
+	</body>
+</html>

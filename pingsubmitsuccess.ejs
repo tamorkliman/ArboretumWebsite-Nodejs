@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+		</style>
+	</head>
+	<h2>Thank you for submitting a ping timing for the sensors</h1>
+  <body>
+      <p>The changes will take effect within 5 minutes or less</p>
+      <p>Feel free to resubmit if this isn't the intended frequency</p>
+      <p>sensornode <%= data.sensornodename %></p>
+      <p>seconds <%= data.seconds %></p>
+      <p>minutes <%= data.minutes %></p>
+      <p>hours <%= data.hours %></p>
+      <p>days <%= data.days %></p>
+      <p>months <%= data.months %></p>
+	</body>
+</html>
